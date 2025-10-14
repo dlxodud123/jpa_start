@@ -2,8 +2,6 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -18,14 +16,17 @@ public class JpaMain {
         tx.begin();
 
         try{
-//            Member findMember = em.find(Member.class, 1L);
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .getResultList();
+            // 비영속
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("HelloJPA");
 
-            for (Member member : result){
-                System.out.println("member.name = " + member.getName());
-            }
+            // 영속
+            System.out.println("=== BEFORE ===");
+            em.persist(member);
+            System.out.println("=== AFTER ===");
 
+            // commit이 되어야 DB로 SQL이 날라간다
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
