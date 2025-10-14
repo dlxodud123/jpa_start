@@ -16,17 +16,10 @@ public class JpaMain {
         tx.begin();
 
         try{
-            // 비영속
-            Member member = new Member();
-            member.setId(100L);
-            member.setName("HelloJPA");
+            Member findMember = em.find(Member.class, 150L);
+            findMember.setName("ZZZZ");
+            System.out.println("==========");
 
-            // 영속
-            System.out.println("=== BEFORE ===");
-            em.persist(member);
-            System.out.println("=== AFTER ===");
-
-            // commit이 되어야 DB로 SQL이 날라간다
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
