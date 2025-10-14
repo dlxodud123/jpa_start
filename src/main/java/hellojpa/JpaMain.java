@@ -18,10 +18,7 @@ public class JpaMain {
         try{
 
             Member findMember = em.find(Member.class, 150L);
-            findMember.setName("AAAA");
-
-            em.detach(findMember);
-            // em.clear();
+            findMember.setName("AAAAAA333");
 
             System.out.println("===========================");
             tx.commit();
