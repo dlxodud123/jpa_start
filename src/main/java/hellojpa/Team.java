@@ -14,7 +14,8 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name = "TEMA_ID")
     private List<Member> members = new ArrayList<>();
 
 
@@ -41,8 +42,8 @@ public class Team {
 
 
     // 연관관계 편의 메서드
-    public void addMember(Member member) {
-        member.setTeam(this);
-        members.add(member);
-    }
+//    public void addMember(Member member) {
+//        member.setTeam(this);
+//        members.add(member);
+//    }
 }

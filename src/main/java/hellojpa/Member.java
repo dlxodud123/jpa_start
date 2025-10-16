@@ -12,9 +12,8 @@ public class Member {
     private String username;
 
     @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
     private Team team;
-
 
 
 
@@ -30,17 +29,17 @@ public class Member {
     public void setUsername(String username) {
         this.username = username;
     }
-    public Team getTeam() {
-        return team;
-    }
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
-
-    // 연관관계 편의 메서드
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    }
+//    public Team getTeam() {
+//        return team;
+//    }
+//    public void setTeam(Team team) {
+//        this.team = team;
+//    }
+//
+//
+//    // 연관관계 편의 메서드
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
 }
