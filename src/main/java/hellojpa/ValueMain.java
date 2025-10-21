@@ -12,8 +12,9 @@ public class ValueMain {
         Address address1 = new Address("city", "street", "10000");
         Address address2 = new Address("city", "street", "10000");
 
+        System.out.println("asdf");
         // false
-        System.ouast.println("address1 == address2 : " + (address1 == address2));
+        System.out.println("address1 == address2 : " + (address1 == address2));
         // true
         System.out.println("address1 equals address2 : " + (address1.equals(address2)));
     }
